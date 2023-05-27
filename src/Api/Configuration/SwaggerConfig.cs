@@ -40,10 +40,10 @@ public static class SwaggerConfig
 
     public static void UseSwaggerConfig(this IApplicationBuilder app, IApiVersionDescriptionProvider provider, IWebHostEnvironment environment)
     {
-        if (environment.IsProduction())
-        {
-            app.UseMiddleware<SwaggerAuthorizedMiddleware>();
-        }
+        //if (environment.IsProduction())
+        //{
+        //    app.UseMiddleware<SwaggerAuthorizedMiddleware>();
+        //}
 
         app.UseSwagger();
         app.UseSwaggerUI(
