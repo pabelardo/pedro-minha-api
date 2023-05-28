@@ -44,10 +44,10 @@ jobs:
         run: dotnet build --configuration Release
         
       - name: Update database MeuDbContext
-        run: dotnet ef database update -c MeuDbContext -p src\Data\Data.csproj -s src\Api\Api.csproj
+        run: dotnet ef database update -c MeuDbContext -p ../src/Data/Data.csproj -s ../src/Api/Api.csproj
         
       - name: Update database ApplicationDbContext
-        run: dotnet ef database update -c ApplicationDbContext -p src\Api\Api.csproj -s src\Api\Api.csproj
+        run: dotnet ef database update -c ApplicationDbContext -p ../src/Api/Api.csproj -s ../src/Api/Api.csproj
 
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
