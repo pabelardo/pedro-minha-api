@@ -11,6 +11,8 @@ builder.Configuration
     .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", true, true)
     .AddEnvironmentVariables();
 
+if (builder.Environment.IsProduction()) builder.Configuration.AddUserSecrets<Program>();
+
 builder.Services.AddDbContext<MeuDbContext>(options => 
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
